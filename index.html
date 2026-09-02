@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A deterministic human-agent microplate layout studio demonstrating state-aware WebMCP tools.">
+    <meta name="theme-color" content="#071713">
+    <title>PlateWeave — Human-agent microplate design</title>
+    <link rel="stylesheet" href="./src/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">Skip to workspace</a>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="PlateWeave home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>Plate<span>Weave</span></span>
+      </a>
+      <div class="status-cluster">
+        <span class="eyebrow">Synthetic demo · no patient data</span>
+        <span id="webmcp-status" class="status-pill pending" role="status"><i></i> Checking site tools…</span>
+      </div>
+    </header>
+
+    <main id="workspace">
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="kicker">ASSAY DESIGN / SYN-96-001</p>
+          <h1 id="page-title">Design the plate together.</h1>
+          <p class="hero-copy">You protect scientific intent. Your agent handles the repetitive spatial work through nine semantic page tools—not 96 fragile clicks.</p>
+        </div>
+        <div class="hero-actions">
+          <button id="copy-prompt" class="button primary">Copy judge prompt</button>
+          <button id="reset" class="button ghost">Reset demo</button>
+        </div>
+      </section>
+
+      <section class="workspace-grid">
+        <div class="primary-column">
+          <article class="panel plate-panel" aria-labelledby="plate-title">
+            <div class="panel-heading">
+              <div>
+                <p class="kicker">LIVE SPATIAL STATE</p>
+                <h2 id="plate-title">96-well response screen</h2>
+              </div>
+              <div class="version-chip"><span id="layout-hash">L-—</span><b id="state-version">v1</b></div>
+            </div>
+            <div class="legend" aria-label="Plate legend">
+              <span><i class="swatch vehicle"></i> Vehicle</span>
+              <span><i class="swatch treatment"></i> Treatment</span>
+              <span><i class="swatch control"></i> Control</span>
+              <span><i class="lock-symbol">◆</i> Human lock</span>
+            </div>
+            <div class="plate-scroll">
+              <div id="plate-grid" class="plate-grid" aria-label="96-well plate"></div>
+            </div>
+            <div class="plate-footer">
+              <p id="plate-summary">24 samples · 4 controls</p>
+              <button id="undo" class="text-button">↶ Undo last plate change</button>
+            </div>
+          </article>
+
+          <article class="panel candidates-panel" aria-labelledby="candidates-title">
+            <div class="panel-heading">
+              <div>
+                <p class="kicker">REVERSIBLE PROPOSALS</p>
+                <h2 id="candidates-title">Candidate layouts</h2>
+              </div>
+              <button id="compare" class="button compact ghost">Compare generated</button>
+            </div>
+            <div id="candidate-list" class="candidate-list"></div>
+            <div class="manual-actions">
+              <button id="generate-balance" class="button secondary">Generate balance-first</button>
+              <button id="generate-pipetting" class="button secondary">Generate pipetting-first</button>
+            </div>
+            <div id="comparison" class="comparison" aria-live="polite"></div>
+          </article>
+
+          <article class="panel edit-panel" aria-labelledby="edit-title">
+            <div>
+              <p class="kicker">HUMAN OVERRIDE</p>
+              <h2 id="edit-title">Protect a scarce sample</h2>
+              <p>Move through the same versioned domain command the agent uses. Occupied targets swap safely.</p>
+            </div>
+            <form id="move-form" class="move-form">
+              <label>Sample
+                <select id="sample-select" name="sample"></select>
+              </label>
+              <label>Target well
+                <select id="well-select" name="well"></select>
+              </label>
+              <label class="check"><input id="lock-check" type="checkbox" checked> Preserve as human lock</label>
+              <button class="button primary" type="submit">Move & lock</button>
+            </form>
+          </article>
+        </div>
+
+        <aside class="side-column" aria-label="Layout quality and export">
+          <article class="panel quality-panel" aria-labelledby="quality-title">
+            <div class="panel-heading">
+              <div>
+                <p class="kicker">PAGE-COMPUTED</p>
+                <h2 id="quality-title">Layout quality</h2>
+              </div>
+              <div id="quality-score" class="score-ring"><strong>0</strong><span>/100</span></div>
+            </div>
+            <p class="disclaimer">Configured heuristic, not a universal statistical-validity score.</p>
+            <div id="metrics" class="metric-list"></div>
+            <div id="validation" class="validation-box"></div>
+          </article>
+
+          <article class="panel export-panel" aria-labelledby="export-title">
+            <div class="panel-heading">
+              <div>
+                <p class="kicker">CONSEQUENTIAL BOUNDARY</p>
+                <h2 id="export-title">Review & export</h2>
+              </div>
+              <span id="approval-state" class="mini-state">Not prepared</span>
+            </div>
+            <p>The agent can prepare this exact layout. Only your visible approval can authorize one idempotent CSV export.</p>
+            <div class="export-actions">
+              <button id="prepare-export" class="button secondary">Prepare CSV</button>
+              <button id="approve-export" class="button primary" disabled>Approve exact layout</button>
+            </div>
+            <pre id="csv-preview" class="csv-preview" tabindex="0">No preview yet.</pre>
+            <div id="receipt" class="receipt"></div>
+          </article>
+
+          <article class="panel ledger-panel" aria-labelledby="ledger-title">
+            <div class="panel-heading">
+              <div>
+                <p class="kicker">AUDITABLE COLLABORATION</p>
+                <h2 id="ledger-title">Activity ledger</h2>
+              </div>
+              <span id="event-count" class="count-chip">1 event</span>
+            </div>
+            <ol id="ledger" class="ledger"></ol>
+          </article>
+        </aside>
+      </section>
+      <div id="notice" class="notice" role="status" aria-live="polite"></div>
+    </main>
+    <footer>
+      <p>PlateWeave is a synthetic experimental-design demonstrator. It does not operate laboratory equipment or make biological claims.</p>
+      <a href="https://github.com/webmaxru/webmcp-plate-studio">Source & implementation notes</a>
+    </footer>
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

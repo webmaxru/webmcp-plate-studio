@@ -1,0 +1,107 @@
+# PlateWeave
+
+> Working title: the challenge guidance recommends that the entrant personally confirm the final project name.
+
+## One-line Summary
+
+A scientist and an AI agent co-design a validated 96-well plate: the human fixes precious samples and approves the exact export while WebMCP gives the agent precise, state-aware spatial operations.
+
+## Problem
+
+Microplate layouts combine sample identity, fixed controls, replicate separation, row/column balance, edge effects, and pipetting order across 96 nearly identical wells. Scientists understand that visual canvas, but a screen-driving agent has to infer semantics from cells and coordinates. One mistaken click can duplicate a sample, move a control, or reuse a plan after the human changed the plate.
+
+## Solution
+
+PlateWeave is a synthetic design studio with one shared, versioned state. The person can use the familiar 96-well interface, set or lock samples, compare candidates, and inspect the CSV. The agent uses nine imperative WebMCP tools to read exact identities, generate deterministic alternatives, compare page-computed metrics, apply a reversible layout, recover from stale human edits, validate, and prepare export. The page—not the model—enforces every constraint.
+
+The final export is deliberately human-owned. Codex can prepare the exact CSV and hash, but the page returns `approval_required` until the scientist presses a visible approval button. The internal grant is bound to that version and hash, revoked by edits, consumed once, and protected by an idempotency key.
+
+## Why This Matters
+
+Laboratory staff spend attention on repetitive spatial allocation where small clerical errors are expensive. This demonstrator shows a credible division of labor: scientists retain experimental judgment and approval, while an agent handles precise batch operations and explains measurable trade-offs. It makes no medical claim and controls no instrument.
+
+## Why WebMCP Fits
+
+The plate is exactly the kind of dense visual surface where coordinate automation is weakest. WebMCP turns “click many similar cells correctly” into stable operations over sample IDs, well IDs, strategies, and state versions. The agent and human work on the same live plate and can see each other's changes immediately. Without WebMCP, preserving a human D6 lock while regenerating the remaining 23 samples is a fragile browser task; with it, that is one validated semantic operation.
+
+## How We Used AI
+
+- Codex planned and implemented the static app, deterministic domain model, WebMCP contracts, tests, and submission artifacts.
+- The locally installed `webmaxru/web-ai-agent-skills` WebMCP skill grounded the implementation in the current imperative API and compatibility model.
+- During the product demo, Codex is the WebMCP client that selects and sequences page tools from the user's natural-language goal.
+- All scientific data and metrics are deterministic mock data; no generative model produces scientific results.
+
+## How We Used Codex
+
+Codex converted the scenario into a narrow executable state machine, split the domain engine from browser registration, implemented nine schemas and lifecycle cleanup, and built regression tests for stale state, approval, idempotency, and cancellation. The intended validation run uses Codex in the desktop app's built-in browser so judges can inspect site tools and visible results together.
+
+## Key Features
+
+- Complete interactive 8×12 plate with 24 synthetic samples and four fixed controls.
+- Deterministic balance-first and pipetting-first candidates with a real metric trade-off.
+- Reversible candidate application and human sample locks.
+- Exact state-version checks and stale-candidate recovery.
+- Page-derived completeness, control, edge, separation, balance, and pipetting metrics.
+- Nine typed imperative WebMCP tools with annotations and cancellation.
+- Hash-bound visible approval and idempotent CSV export receipt.
+- Human-only mode when WebMCP is unavailable.
+
+## Architecture
+
+The project is dependency-free HTML, CSS, and JavaScript served by a small Node static server. `src/domain.js` owns normalized state and all business rules. `src/app.js` renders the plate and sends human actions through that domain. `src/webmcp.js` wraps the same methods as top-level imperative tools using `document.modelContext || navigator.modelContext`, awaited registration, strict JSON schemas, `AbortController` cleanup, annotations, and per-call cancellation.
+
+## Testing Instructions
+
+1. Run `npm start` with Node 20+ and open `http://127.0.0.1:4173`.
+2. Run `npm run check`; all ten tests should pass.
+3. In a supported desktop in-app browser, confirm nine site tools are discoverable.
+4. Follow the four exact prompts in `demo/demo-script.md`.
+5. Verify S12 remains at D6 after stale recovery.
+6. Verify premature export returns `approval_required`, then approve in the page and export once.
+7. Retry with the same idempotency key and confirm no duplicate receipt.
+
+## Public Demo Link
+
+TODO — deploy and verify a judge-accessible HTTPS URL.
+
+## Public Repository Link
+
+Target repository: https://github.com/webmaxru/webmcp-plate-studio
+
+BLOCKED — the owner requested a private repository, while the challenge requires it to be public. Change visibility only after explicit owner approval.
+
+## Demo Video
+
+TODO — record `demo/demo-script.md`, add the supplied voiceover, keep the final cut under three minutes, and upload it publicly to YouTube.
+
+## Screenshot Shot List
+
+See `demo/shot-list.md`. Priority images: seeded risk, candidate comparison, human D6 lock/stale state, approval preview, completed receipt, and site-tools history.
+
+## Submission Readiness Notes
+
+The product flow, source code, license, local run instructions, and automated tests exist. Remaining eligibility blockers are a verified live URL, native Codex WebMCP evidence, public repository visibility, a public narrated YouTube video, and entrant-specific form answers.
+
+## Known Limitations
+
+- Synthetic single-plate demonstrator; no LIMS, robot, persistence, authentication, uploads, or patient data.
+- Scoring heuristics illustrate layout trade-offs; they are not statistical or biological advice.
+- In-memory approval and receipts reset on reload.
+- Native WebMCP availability depends on the client/browser rollout.
+
+## TODO Official Form Fields
+
+| Devpost field | Draft answer |
+|---|---|
+| Submitter Type | TODO entrant: choose Individual / Team of Individuals / Organization |
+| Country of residence | TODO entrant |
+| Organization name | Leave blank unless submitting for an organization |
+| App Status | New |
+| Existing-project changes | Not applicable; new during submission period |
+| Live URL | TODO |
+| Testing instructions / credentials | No credentials; use the Testing Instructions above |
+| Public code repo | https://github.com/webmaxru/webmcp-plate-studio — currently private blocker |
+| Agent/client tested | Deterministic fake `modelContext`: PASS. TODO add exact Codex desktop model/app version after native test |
+| AI tools leveraged | OpenAI Codex; `webmaxru/web-ai-agent-skills` WebMCP skill |
+| Learning level | Significant — entrant to confirm |
+| Career AI value | Yes — entrant to confirm |
