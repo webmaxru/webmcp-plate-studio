@@ -8,7 +8,7 @@ Checked against the live Devpost MCP data on 2026-09-02. The official site and r
 |---|---|---|
 | WebMCP-powered web app | PASS in source and deterministic tests | Nine top-level imperative tools in `src/webmcp.js`; registration test passes |
 | Runnable and consistent | PASS locally | `npm run check` passes; no install or external service required |
-| Working live URL accessible to judges | BLOCKED | Add and verify a public deployment URL in a fresh session |
+| Working live URL accessible to judges | BLOCKED | GitHub Pages creation on 2026-09-02 returned HTTP 422 because the current plan does not support Pages for this private repository; publish elsewhere or make the repository public, then verify in a fresh session |
 | WebMCP tested in ChatGPT/Codex in-app browser or enabled Chrome | BLOCKED | Local fake-context tests pass; a native in-app browser run must be recorded |
 | Text description covers fit, UX, joint capability, implementation | PASS draft | `devpost-submission.md` |
 | Public YouTube demo, under 3 minutes, with audio | BLOCKED | Script and transcript exist; record, add voiceover, upload publicly |
@@ -50,6 +50,8 @@ Use the four prompts in `demo/demo-script.md`. Save:
 5. Exact client/model/app version used.
 
 Do not change this row to PASS until a native site-tool call—not a DOM click or fake context—has succeeded.
+
+Attempt recorded on 2026-09-02: Codex's in-app Browser binding was selected and made visible, but two fresh localhost tab attempts timed out while waiting for the Browser webview to attach. A direct Codex-panel browser open also failed to attach. No native site-tool success is claimed.
 
 ## Required final actions
 
