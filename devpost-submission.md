@@ -62,13 +62,11 @@ The project is dependency-free HTML, CSS, and JavaScript served by a small Node 
 
 ## Public Demo Link
 
-TODO — deploy and verify a judge-accessible HTTPS URL.
+https://webmaxru.github.io/webmcp-plate-studio/
 
 ## Public Repository Link
 
-Target repository: https://github.com/webmaxru/webmcp-plate-studio
-
-BLOCKED — the owner requested a private repository, while the challenge requires it to be public. Change visibility only after explicit owner approval.
+https://github.com/webmaxru/webmcp-plate-studio
 
 ## Demo Video
 
@@ -80,7 +78,7 @@ See `demo/shot-list.md`. Priority images: seeded risk, candidate comparison, hum
 
 ## Submission Readiness Notes
 
-The product flow, source code, license, local run instructions, and automated tests exist. Remaining eligibility blockers are a verified live URL, native Codex WebMCP evidence, public repository visibility, a public narrated YouTube video, and entrant-specific form answers.
+The product flow, public live URL, public source code, license, local run instructions, and automated tests exist. Remaining eligibility blockers are native Codex WebMCP evidence, a public narrated YouTube video, and entrant-specific form answers.
 
 ## Known Limitations
 
@@ -98,9 +96,9 @@ The product flow, source code, license, local run instructions, and automated te
 | Organization name | Leave blank unless submitting for an organization |
 | App Status | New |
 | Existing-project changes | Not applicable; new during submission period |
-| Live URL | TODO |
+| Live URL | https://webmaxru.github.io/webmcp-plate-studio/ |
 | Testing instructions / credentials | No credentials; use the Testing Instructions above |
-| Public code repo | https://github.com/webmaxru/webmcp-plate-studio — currently private blocker |
+| Public code repo | https://github.com/webmaxru/webmcp-plate-studio |
 | Agent/client tested | Deterministic fake `modelContext`: PASS. TODO add exact Codex desktop model/app version after native test |
 | AI tools leveraged | OpenAI Codex; `webmaxru/web-ai-agent-skills` WebMCP skill |
 | Learning level | Significant — entrant to confirm |

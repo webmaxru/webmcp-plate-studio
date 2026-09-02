@@ -66,6 +66,6 @@ Architecture, implementation details, evaluation prompts, limitations, and the c
 
 ## Status
 
-The implementation and automated domain/registration tests are complete. Real Codex in-app-browser validation, a public live deployment, a public repository, and a public narrated YouTube video must be completed before submission. The repository was intentionally created private at the owner's request, which conflicts with the challenge's public-repository requirement until visibility is changed.
+The implementation, automated domain/registration tests, public repository, and [live GitHub Pages deployment](https://webmaxru.github.io/webmcp-plate-studio/) are complete. Real Codex in-app-browser validation and a public narrated YouTube video remain required before submission.
 
 MIT licensed. See [`LICENSE`](./LICENSE).

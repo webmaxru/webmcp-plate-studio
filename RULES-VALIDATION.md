@@ -8,11 +8,11 @@ Checked against the live Devpost MCP data on 2026-09-02. The official site and r
 |---|---|---|
 | WebMCP-powered web app | PASS in source and deterministic tests | Nine top-level imperative tools in `src/webmcp.js`; registration test passes |
 | Runnable and consistent | PASS locally | `npm run check` passes; no install or external service required |
-| Working live URL accessible to judges | BLOCKED | GitHub Pages creation on 2026-09-02 returned HTTP 422 because the current plan does not support Pages for this private repository; publish elsewhere or make the repository public, then verify in a fresh session |
+| Working live URL accessible to judges | PASS | `https://webmaxru.github.io/webmcp-plate-studio/` returned HTTP 200 with the expected title in an anonymous HTTPS request on 2026-09-02 |
 | WebMCP tested in ChatGPT/Codex in-app browser or enabled Chrome | BLOCKED | Local fake-context tests pass; a native in-app browser run must be recorded |
 | Text description covers fit, UX, joint capability, implementation | PASS draft | `devpost-submission.md` |
 | Public YouTube demo, under 3 minutes, with audio | BLOCKED | Script and transcript exist; record, add voiceover, upload publicly |
-| Public code repository | BLOCKED BY REQUEST | Repository is intentionally private; change visibility only with owner approval |
+| Public code repository | PASS | `https://github.com/webmaxru/webmcp-plate-studio`; GitHub API confirmed `isPrivate: false` on 2026-09-02 |
 | Complete source, assets, run instructions | PASS locally | README, app, server, tests, docs, and demo package are present |
 | Detectable open-source license | PASS in repository contents | MIT `LICENSE`; detection can be verified once repository is public |
 | New or meaningfully extended during submission period | PASS | Repository and implementation were created during the 2026-08-25–09-03 submission period; preserve commit timestamps |
@@ -55,8 +55,6 @@ Attempt recorded on 2026-09-02: Codex's in-app Browser binding was selected and 
 
 ## Required final actions
 
-1. Publish and verify a live URL.
-2. Complete native Codex in-app-browser validation.
-3. Record the scripted demo, add voiceover, and publish it on YouTube.
-4. With explicit owner approval, make the GitHub repository public and verify the MIT license while logged out.
-5. Replace all TODO values in `devpost-submission.md` and submit before the deadline.
+1. Complete native Codex in-app-browser validation.
+2. Record the scripted demo, add voiceover, and publish it on YouTube.
+3. Replace the remaining entrant/video/client TODO values in `devpost-submission.md` and submit before the deadline.
