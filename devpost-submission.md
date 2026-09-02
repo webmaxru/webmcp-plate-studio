@@ -33,7 +33,7 @@ The plate is exactly the kind of dense visual surface where coordinate automatio
 
 ## How We Used Codex
 
-Codex converted the scenario into a narrow executable state machine, split the domain engine from browser registration, implemented nine schemas and lifecycle cleanup, and built regression tests for stale state, approval, idempotency, and cancellation. The intended validation run uses Codex in the desktop app's built-in browser so judges can inspect site tools and visible results together.
+Codex converted the scenario into a narrow executable state machine, split the domain engine from browser registration, implemented nine schemas and lifecycle cleanup, and built regression tests for stale state, approval, idempotency, and cancellation. On 2026-09-02, Codex's desktop in-app Browser discovered all nine tools from the public deployment and successfully invoked the experiment read plus both candidate-generation strategies.
 
 ## Key Features
 
@@ -78,7 +78,7 @@ See `demo/shot-list.md`. Priority images: seeded risk, candidate comparison, hum
 
 ## Submission Readiness Notes
 
-The product flow, public live URL, public source code, license, local run instructions, and automated tests exist. Remaining eligibility blockers are native Codex WebMCP evidence, a public narrated YouTube video, and entrant-specific form answers.
+The product flow, public live URL, public source code, license, local run instructions, automated tests, and representative native Codex WebMCP evidence exist. Remaining eligibility blockers are a public narrated YouTube video and entrant-specific form answers.
 
 ## Known Limitations
 
@@ -99,7 +99,7 @@ The product flow, public live URL, public source code, license, local run instru
 | Live URL | https://webmaxru.github.io/webmcp-plate-studio/ |
 | Testing instructions / credentials | No credentials; use the Testing Instructions above |
 | Public code repo | https://github.com/webmaxru/webmcp-plate-studio |
-| Agent/client tested | Deterministic fake `modelContext`: PASS. TODO add exact Codex desktop model/app version after native test |
+| Agent/client tested | OpenAI Codex desktop in-app Browser: PASS on 2026-09-02; nine tools discovered and three representative calls succeeded. Add the exact installed app version if visible before submission. |
 | AI tools leveraged | OpenAI Codex; `webmaxru/web-ai-agent-skills` WebMCP skill |
 | Learning level | Significant — entrant to confirm |
 | Career AI value | Yes — entrant to confirm |

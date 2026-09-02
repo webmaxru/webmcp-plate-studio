@@ -9,7 +9,7 @@ Checked against the live Devpost MCP data on 2026-09-02. The official site and r
 | WebMCP-powered web app | PASS in source and deterministic tests | Nine top-level imperative tools in `src/webmcp.js`; registration test passes |
 | Runnable and consistent | PASS locally | `npm run check` passes; no install or external service required |
 | Working live URL accessible to judges | PASS | `https://webmaxru.github.io/webmcp-plate-studio/` returned HTTP 200 with the expected title in an anonymous HTTPS request on 2026-09-02 |
-| WebMCP tested in ChatGPT/Codex in-app browser or enabled Chrome | BLOCKED | Local fake-context tests pass; a native in-app browser run must be recorded |
+| WebMCP tested in ChatGPT/Codex in-app browser or enabled Chrome | PASS | OpenAI Codex desktop in-app Browser discovered all nine public-deployment tools and successfully called `get_experiment_brief` plus two `generate_candidate_layout` variants on 2026-09-02 |
 | Text description covers fit, UX, joint capability, implementation | PASS draft | `devpost-submission.md` |
 | Public YouTube demo, under 3 minutes, with audio | BLOCKED | Script and transcript exist; record, add voiceover, upload publicly |
 | Public code repository | PASS | `https://github.com/webmaxru/webmcp-plate-studio`; GitHub API confirmed `isPrivate: false` on 2026-09-02 |
@@ -53,8 +53,9 @@ Do not change this row to PASS until a native site-tool call—not a DOM click o
 
 Attempt recorded on 2026-09-02: Codex's in-app Browser binding was selected and made visible, but two fresh localhost tab attempts timed out while waiting for the Browser webview to attach. A direct Codex-panel browser open also failed to attach. No native site-tool success is claimed.
 
+Retry recorded on 2026-09-02 after public deployment: Codex discovered exactly nine native site tools and successfully read the experiment brief, then generated deterministic balance-first and pipetting-first candidates through WebMCP. The returned candidates preserved all four controls and exposed the intended balance-versus-pipetting trade-off. This supersedes the failed localhost attempt. Some later browser-control focus operations were intermittent, so the supplied demo script should still be used for the final continuous video take.
+
 ## Required final actions
 
-1. Complete native Codex in-app-browser validation.
-2. Record the scripted demo, add voiceover, and publish it on YouTube.
-3. Replace the remaining entrant/video/client TODO values in `devpost-submission.md` and submit before the deadline.
+1. Record the scripted demo, add voiceover, and publish it on YouTube.
+2. Replace the remaining entrant/video/client TODO values in `devpost-submission.md` and submit before the deadline.
