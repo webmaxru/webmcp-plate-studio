@@ -10,7 +10,7 @@ Checked against the live Devpost MCP data on 2026-09-02. The official site and r
 | Runnable and consistent | PASS locally | `npm run check` passes; no install or external service required |
 | Working live URL free and unrestricted through judging | PASS; ongoing availability required | `https://webmaxru.github.io/webmcp-plate-studio/` returned HTTP 200 with the expected title in an anonymous HTTPS request on 2026-09-02. Keep it free, public, and unrestricted through September 21, 2026 at 5:00 pm PT. |
 | WebMCP tested in ChatGPT/Codex in-app browser or enabled Chrome | PASS | OpenAI Codex desktop in-app Browser discovered all nine public-deployment tools and successfully called `get_experiment_brief` plus two `generate_candidate_layout` variants on 2026-09-02 |
-| Text description covers fit, UX, joint capability, implementation | PASS draft | `devpost-submission.md` |
+| Text description covers fit, UX, joint capability, implementation | PASS draft | `SUBMISSION.md` |
 | Public YouTube demo under 3 minutes with audio | PASS | Published [2:22 narrated demo](https://www.youtube.com/watch?v=FjriwBNjET4); the exact-master caption source remains at `demo/demo-captions.srt` |
 | Public code repository | PASS | `https://github.com/webmaxru/webmcp-plate-studio`; GitHub API confirmed `isPrivate: false` on 2026-09-02 |
 | Complete source, assets, run instructions | PASS locally | README, app, server, tests, docs, and demo package are present |
@@ -57,5 +57,5 @@ Retry recorded on 2026-09-02 after public deployment: Codex discovered exactly n
 
 ## Required final actions
 
-1. Confirm the final project title and remaining entrant-specific values in `devpost-submission.md`.
+1. Confirm the remaining entrant-specific values in `SUBMISSION.md`.
 2. Submit the completed entry before the deadline.

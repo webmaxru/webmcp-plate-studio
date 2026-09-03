@@ -1,8 +1,10 @@
-# PlateWeave
+# Submission information
 
-> Working title: the challenge guidance recommends that the entrant personally confirm the final project name.
+## Project name
 
-## One-line Summary
+**PlateWeave — Reliable 96-Well Designs Without Costly Layout Mistakes**
+
+## Tagline
 
 A scientist and an AI agent co-design a validated 96-well plate: the human fixes precious samples and approves the exact export while WebMCP gives the agent precise, state-aware spatial operations.
 
@@ -103,7 +105,7 @@ See `demo/shot-list.md`. Priority images: seeded risk, candidate comparison, hum
 
 ## Submission Readiness Notes
 
-The product flow, public live URL, public source code, license, local run instructions, automated tests, four gallery screenshots, public narrated YouTube video, and representative native Codex WebMCP evidence exist. On 2026-09-03, `npm run check` passed all twelve tests, the live app returned HTTP 200, and YouTube exposed the expected public video metadata. Remaining blockers are entrant confirmation of the project title and required entrant-specific form answers.
+The product flow, public live URL, public source code, license, local run instructions, automated tests, four gallery screenshots, public narrated YouTube video, and representative native Codex WebMCP evidence exist. On 2026-09-03, `npm run check` passed all twelve tests, the live app returned HTTP 200, and YouTube exposed the expected public video metadata. The entrant confirmed the final project title and all required entrant-specific form answers on 2026-09-03. The packet is ready for the final live readiness and security check.
 
 ## Known Limitations
 
@@ -112,12 +114,12 @@ The product flow, public live URL, public source code, license, local run instru
 - In-memory approval and receipts reset on reload.
 - Native WebMCP availability depends on the client/browser rollout.
 
-## TODO Official Form Fields
+## Official Form Fields
 
 | Devpost field | Draft answer |
 |---|---|
-| Submitter Type (`28249`) | TODO entrant: choose Individual / Team of Individuals / Organization |
-| Country of residence of yourself and team members if applicable (`28250`) | TODO entrant |
+| Submitter Type (`28249`) | Individual |
+| Country of residence of yourself and team members if applicable (`28250`) | Norway |
 | If submitting on behalf of an organization, what is the organization name? (`28251`) | Leave blank unless submitting for an organization |
 | App Status (`28252`) | New |
 | If Existing, explain what you updated during the submission period (`28253`) | Not applicable; new during submission period |
@@ -126,5 +128,5 @@ The product flow, public live URL, public source code, license, local run instru
 | URL to your PUBLIC Code Repo (`28256`) | https://github.com/webmaxru/webmcp-plate-studio |
 | Which agent(s) or client(s) did you test your WebMCP tools with? (`28257`) | OpenAI Codex desktop in-app Browser: PASS on 2026-09-02; nine tools discovered and three representative calls succeeded. The host reports `codex-cli 0.152.1`; the desktop app version was not separately visible. |
 | Which AI tools have you leveraged while working on this project? (`28258`) | OpenAI Codex; `webmaxru/web-ai-agent-skills` WebMCP skill |
-| Describe the level of learning you/your team derived from the project (`28259`) | Significant — entrant to confirm |
-| Did you gain AI value that you can use in your career? (`28260`) | Yes — entrant to confirm |
+| Describe the level of learning you/your team derived from the project (`28259`) | Significant |
+| Did you gain AI value that you can use in your career? (`28260`) | Yes |

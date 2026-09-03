@@ -1,4 +1,4 @@
-# PlateWeave
+# PlateWeave — Reliable 96-Well Designs Without Costly Layout Mistakes
 
 > This project was created using the [WebMCP Agent Skill from the Web AI Agent Skills collection](https://github.com/webmaxru/web-ai-agent-skills).
 
@@ -64,13 +64,13 @@ After pressing **Approve exact layout**:
 - State-version preconditions reject stale assumptions.
 - Export approval is held only by the page, bound to the current layout hash and version, revoked by any edit, consumed once, and protected by an idempotency key.
 
-Architecture, implementation details, evaluation prompts, limitations, and the complete submission materials are in [`docs/`](./docs/), [`evals/`](./evals/), [`demo/`](./demo/), [`devpost-submission.md`](./devpost-submission.md), and [`RULES-VALIDATION.md`](./RULES-VALIDATION.md).
+Architecture, implementation details, evaluation prompts, limitations, and the complete submission materials are in [`docs/`](./docs/), [`evals/`](./evals/), [`demo/`](./demo/), [`SUBMISSION.md`](./SUBMISSION.md), and [`RULES-VALIDATION.md`](./RULES-VALIDATION.md).
 
 Four tracked 16:9 gallery frames, suggested alt text, intended placement, and an accessible social card are in [`submission-assets/`](./submission-assets/README.md).
 
 ## Status
 
-The implementation, automated domain/registration tests, [public source repository](https://github.com/webmaxru/webmcp-plate-studio), [GitHub Pages deployment from this repository](https://webmaxru.github.io/webmcp-plate-studio/), published [2:22 Codex demo](https://www.youtube.com/watch?v=FjriwBNjET4), and representative native WebMCP validation are complete. Final project-title confirmation, entrant-specific fields, and Devpost submission remain.
+The implementation, automated domain/registration tests, [public source repository](https://github.com/webmaxru/webmcp-plate-studio), [GitHub Pages deployment from this repository](https://webmaxru.github.io/webmcp-plate-studio/), published [2:22 Codex demo](https://www.youtube.com/watch?v=FjriwBNjET4), and representative native WebMCP validation are complete. Entrant-specific fields and final challenge submission remain.
 
 The live app must remain free, publicly accessible, and unrestricted through September 21, 2026 at 5:00 pm PT.
 
