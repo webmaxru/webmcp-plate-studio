@@ -4,7 +4,7 @@ Two jobs here: the frames the recorded video must land, and the still images use
 
 ## Video frames (in order)
 
-Target finished runtime: **2:35** (band 2:20–2:40, hard limit 3:00). "Scroll cue" is the Browser move that must land *before* the listed event; "Cursor/halo" is where a visible cursor or click halo must sit while the voiceover names it — use the post-production fallback overlay (below) if the live cursor isn't legible in the capture.
+Published final runtime: **2:22**, under the three-minute limit. [Watch the completed video on YouTube](https://www.youtube.com/watch?v=FjriwBNjET4). "Scroll cue" is the Browser move that must land *before* the listed event; "Cursor/halo" is where a visible cursor or click halo must sit while the voiceover names it — use the post-production fallback overlay (below) if the live cursor isn't legible in the capture.
 
 | # | Beat | Must be legible in frame | Scroll cue | Cursor/halo | Speed |
 |---|---|---|---|---|---|

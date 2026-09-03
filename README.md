@@ -1,5 +1,7 @@
 # PlateWeave
 
+> This project was created using the [WebMCP Agent Skill from the Web AI Agent Skills collection](https://github.com/webmaxru/web-ai-agent-skills).
+
 PlateWeave is a synthetic 96-well experimental-design studio where a scientist and a browser agent share one visible, versioned plate. It is an entry for the WebMCP Challenge.
 
 The page starts with 24 mock samples clustered on edge wells. A human or agent can generate two deterministic candidates, compare page-computed balance and pipetting trade-offs, apply a reversible proposal, preserve a scarce sample at D6, recover from stale state, validate the exact plate, and export only after a visible hash-bound human approval.
@@ -53,8 +55,6 @@ After pressing **Approve exact layout**:
 
 > I approved the exact preview. Export it once and summarize the validation and receipt.
 
-For the public video upload, use the exact-master sidecar captions at `demo/demo-captions.srt`. They are generated against the finished video timing and should not be manually retimed or burned into the product screenshots.
-
 ## Safety and scope
 
 - All data is deterministic and synthetic; there are no patient identifiers.
@@ -70,7 +70,7 @@ Four tracked 16:9 gallery frames, suggested alt text, intended placement, and an
 
 ## Status
 
-The implementation, automated domain/registration tests, [public source repository](https://github.com/webmaxru/webmcp-plate-studio), [live GitHub Pages deployment](https://webmaxru.github.io/webmcp-plate-studio/), and representative native Codex WebMCP validation are complete. A validated 2:22 narrated final master exists only in ignored `submission-video/`; its public YouTube URL and entrant-specific fields remain required before submission.
+The implementation, automated domain/registration tests, [public source repository](https://github.com/webmaxru/webmcp-plate-studio), [live GitHub Pages deployment](https://webmaxru.github.io/webmcp-plate-studio/), published [2:22 Codex demo](https://www.youtube.com/watch?v=FjriwBNjET4), and representative native WebMCP validation are complete. Final project-title confirmation, entrant-specific fields, and Devpost submission remain.
 
 The live app must remain free, publicly accessible, and unrestricted through September 21, 2026 at 5:00 pm PT.
 

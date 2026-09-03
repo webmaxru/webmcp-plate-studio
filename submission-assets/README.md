@@ -1,6 +1,10 @@
 # Submission media
 
+> This project was created using the [WebMCP Agent Skill from the Web AI Agent Skills collection](https://github.com/webmaxru/web-ai-agent-skills).
+
 These intentionally tracked assets are for the Devpost gallery, repository social preview, and submission write-ups. The PNGs are 1920×1080 frames extracted from the ignored `submission-video/final.mp4`; the video itself remains untracked and must not be moved into this directory.
+
+Published demo: [PlateWeave — 2:22 Codex/WebMCP walkthrough](https://www.youtube.com/watch?v=FjriwBNjET4).
 
 | Asset | Intended use | Suggested accessible alt text |
 |---|---|---|

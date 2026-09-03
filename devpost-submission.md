@@ -53,7 +53,7 @@ The project is dependency-free HTML, CSS, and JavaScript served by a small Node 
 ## Testing Instructions
 
 1. Run `npm start` with Node 20+ and open `http://127.0.0.1:4173`.
-2. Run `npm run check`; all eleven tests should pass.
+2. Run `npm run check`; all twelve tests should pass.
 3. In the ChatGPT desktop in-app browser, or Google Chrome 149+ with `chrome://flags/#enable-webmcp-testing`, confirm nine site tools are discoverable.
 4. Follow the three exact prompts in `demo/demo-script.md`.
 5. Verify S12 remains at D6 after stale recovery.
@@ -72,7 +72,7 @@ https://github.com/webmaxru/webmcp-plate-studio
 
 ## Demo Video
 
-TODO — upload the validated 2:22 narrated final master from ignored `submission-video/` publicly to YouTube, then paste its URL here. Upload `demo/demo-captions.srt` as the exact-master caption sidecar without manually retiming it.
+https://www.youtube.com/watch?v=FjriwBNjET4
 
 ## YouTube title and description
 
@@ -103,7 +103,7 @@ See `demo/shot-list.md`. Priority images: seeded risk, candidate comparison, hum
 
 ## Submission Readiness Notes
 
-The product flow, public live URL, public source code, license, local run instructions, automated tests, and representative native Codex WebMCP evidence exist. Remaining eligibility blockers are a public narrated YouTube video and entrant-specific form answers.
+The product flow, public live URL, public source code, license, local run instructions, automated tests, four gallery screenshots, public narrated YouTube video, and representative native Codex WebMCP evidence exist. On 2026-09-03, `npm run check` passed all twelve tests, the live app returned HTTP 200, and YouTube exposed the expected public video metadata. Remaining blockers are entrant confirmation of the project title and required entrant-specific form answers.
 
 ## Known Limitations
 
@@ -116,15 +116,15 @@ The product flow, public live URL, public source code, license, local run instru
 
 | Devpost field | Draft answer |
 |---|---|
-| Submitter Type | TODO entrant: choose Individual / Team of Individuals / Organization |
-| Country of residence | TODO entrant |
-| Organization name | Leave blank unless submitting for an organization |
-| App Status | New |
-| Existing-project changes | Not applicable; new during submission period |
-| Live URL | https://webmaxru.github.io/webmcp-plate-studio/ |
-| Testing instructions / credentials | No credentials; use the Testing Instructions above |
-| Public code repo | https://github.com/webmaxru/webmcp-plate-studio |
-| Agent/client tested | OpenAI Codex desktop in-app Browser: PASS on 2026-09-02; nine tools discovered and three representative calls succeeded. Add the exact installed app version if visible before submission. |
-| AI tools leveraged | OpenAI Codex; `webmaxru/web-ai-agent-skills` WebMCP skill |
-| Learning level | Significant — entrant to confirm |
-| Career AI value | Yes — entrant to confirm |
+| Submitter Type (`28249`) | TODO entrant: choose Individual / Team of Individuals / Organization |
+| Country of residence of yourself and team members if applicable (`28250`) | TODO entrant |
+| If submitting on behalf of an organization, what is the organization name? (`28251`) | Leave blank unless submitting for an organization |
+| App Status (`28252`) | New |
+| If Existing, explain what you updated during the submission period (`28253`) | Not applicable; new during submission period |
+| Live URL that judges can access using ChatGPT’s in-app browser or Google Chrome with WebMCP enabled (`28254`) | https://webmaxru.github.io/webmcp-plate-studio/ |
+| If applicable, testing instructions for application (`28255`) | No credentials; use the Testing Instructions above |
+| URL to your PUBLIC Code Repo (`28256`) | https://github.com/webmaxru/webmcp-plate-studio |
+| Which agent(s) or client(s) did you test your WebMCP tools with? (`28257`) | OpenAI Codex desktop in-app Browser: PASS on 2026-09-02; nine tools discovered and three representative calls succeeded. The host reports `codex-cli 0.152.1`; the desktop app version was not separately visible. |
+| Which AI tools have you leveraged while working on this project? (`28258`) | OpenAI Codex; `webmaxru/web-ai-agent-skills` WebMCP skill |
+| Describe the level of learning you/your team derived from the project (`28259`) | Significant — entrant to confirm |
+| Did you gain AI value that you can use in your career? (`28260`) | Yes — entrant to confirm |
