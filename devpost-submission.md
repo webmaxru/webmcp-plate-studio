@@ -74,6 +74,29 @@ https://github.com/webmaxru/webmcp-plate-studio
 
 TODO — upload the validated 2:22 narrated final master from ignored `submission-video/` publicly to YouTube, then paste its URL here. Upload `demo/demo-captions.srt` as the exact-master caption sidecar without manually retiming it.
 
+## YouTube title and description
+
+**Title**
+
+`PlateWeave: Can AI Design 96 Wells Without Moving the Sample That Matters? | WebMCP`
+
+**Description**
+
+```text
+One wrong well can invalidate an experiment. Yet a 96-well plate asks a scientist to balance controls, edge effects, replicates, and pipetting order across nearly identical cells.
+
+In this 2:22 Codex demo, PlateWeave turns that dense visual canvas into nine precise WebMCP tools. Codex generates and compares two valid layouts, preserves the scientist's locked sample at D6, detects when a human edit makes its prior plan stale, and prepares an exact CSV. Export remains blocked until the scientist approves the exact current preview.
+
+The data and scoring are deterministic and synthetic. This prototype controls no laboratory instrument and makes no medical claim.
+
+Try it: https://webmaxru.github.io/webmcp-plate-studio/
+Source: https://github.com/webmaxru/webmcp-plate-studio
+
+Built for the WebMCP Challenge.
+
+#WebMCP #AIAgents #LabAutomation #Codex
+```
+
 ## Screenshot Shot List
 
 See `demo/shot-list.md`. Priority images: seeded risk, candidate comparison, human D6 lock/stale state, approval preview, completed receipt, and site-tools history.
