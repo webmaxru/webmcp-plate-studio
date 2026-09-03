@@ -70,7 +70,7 @@ Four tracked 16:9 gallery frames, suggested alt text, intended placement, and an
 
 ## Status
 
-The implementation, automated domain/registration tests, [public source repository](https://github.com/webmaxru/webmcp-plate-studio), [live GitHub Pages deployment](https://webmaxru.github.io/webmcp-plate-studio/), published [2:22 Codex demo](https://www.youtube.com/watch?v=FjriwBNjET4), and representative native WebMCP validation are complete. Final project-title confirmation, entrant-specific fields, and Devpost submission remain.
+The implementation, automated domain/registration tests, [public source repository](https://github.com/webmaxru/webmcp-plate-studio), [GitHub Pages deployment from this repository](https://webmaxru.github.io/webmcp-plate-studio/), published [2:22 Codex demo](https://www.youtube.com/watch?v=FjriwBNjET4), and representative native WebMCP validation are complete. Final project-title confirmation, entrant-specific fields, and Devpost submission remain.
 
 The live app must remain free, publicly accessible, and unrestricted through September 21, 2026 at 5:00 pm PT.
 
