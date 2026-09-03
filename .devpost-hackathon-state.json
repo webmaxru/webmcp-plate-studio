@@ -1,0 +1,41 @@
+{
+  "plugin": "devpost-hackathon",
+  "version": 2,
+  "hackathon": {
+    "slug": "webmcp",
+    "name": "The WebMCP Challenge",
+    "url": "https://webmcp.devpost.com/",
+    "selected": true,
+    "source": "known"
+  },
+  "participant": {
+    "name": "",
+    "display_name": ""
+  },
+  "project": {
+    "name": "PlateWeave — Reliable 96-Well Designs, Avoid Costly Mistakes",
+    "summary": "A scientist and an AI agent co-design a validated 96-well plate: the human fixes precious samples and approves the exact export while WebMCP gives the agent precise, state-aware spatial operations.",
+    "ai_usage": "Codex planned and implemented the static app, deterministic domain model, WebMCP contracts, tests, and submission artifacts; Codex also acts as the WebMCP client in the demo. Scientific data and metrics are deterministic mock data.",
+    "codex_usage": "Codex shaped the scenario into an executable state machine, implemented and tested nine WebMCP tools, and verified representative tools from the public deployment in the desktop in-app browser."
+  },
+  "completed_stages": [
+    "start-hackathon",
+    "review",
+    "resources",
+    "prepare-submission"
+  ],
+  "rules_acknowledged": true,
+  "learning": {
+    "status": "not-started",
+    "current_step": "",
+    "completed_steps": [],
+    "plan_file": "",
+    "checklist_file": ""
+  },
+  "submission": {
+    "draft_file": "devpost-submission.md",
+    "status": "drafting"
+  },
+  "current_stage": "prepare-submission",
+  "next_command": "submit-project"
+}

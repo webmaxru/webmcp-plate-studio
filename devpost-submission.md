@@ -2,7 +2,7 @@
 
 ## Project name
 
-**PlateWeave — Reliable 96-Well Designs Without Costly Layout Mistakes**
+**PlateWeave — Reliable 96-Well Designs, Avoid Costly Mistakes**
 
 ## Tagline
 
