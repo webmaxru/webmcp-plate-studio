@@ -20,17 +20,17 @@ A 96-well grid is understandable to a scientist but brittle for a screen-driving
 | `prepare_export` | Shows an exact CSV preview and layout hash; does not export |
 | `export_approved_layout` | Exports once only after visible page approval of that hash |
 
-Five non-mutating tools declare `readOnlyHint`. All calls have strict JSON schemas and page-level validation. Registration uses `document.modelContext || navigator.modelContext`, awaits each `registerTool`, passes an `AbortController` registration signal, accepts per-execution cancellation, and updates UI before returning structured output.
+Only the three genuinely side-effect-free reads declare `readOnlyHint`; candidate generation and comparison deliberately do not because they update visible proposals or activity. All calls have strict JSON schemas plus matching runtime validation. Registration uses `document.modelContext || navigator.modelContext`, awaits each `registerTool` inside `try`/`catch`, passes an `AbortController` registration signal, accepts per-execution cancellation, and updates UI before returning structured output.
 
 ## Run locally
 
-Requirements: Node.js 20+ and a WebMCP-capable secure browser context for real site-tool discovery.
+Requirements: Node.js 20+. For challenge testing, native WebMCP requires the ChatGPT desktop in-app browser or Google Chrome 149 or later with `chrome://flags/#enable-webmcp-testing` enabled. The public app is HTTPS and loopback localhost is treated as trustworthy; WebMCP is unavailable in workers or headless execution.
 
 ```bash
 npm start
 ```
 
-Open `http://127.0.0.1:4173`. The complete human workflow remains usable when WebMCP is unavailable. Run deterministic tests with:
+Open `http://127.0.0.1:4173`. The complete human workflow remains usable when WebMCP is unavailable, including preparing, visibly approving, and exporting the exact CSV once. Run deterministic tests with:
 
 ```bash
 npm test
@@ -53,6 +53,8 @@ After pressing **Approve exact layout**:
 
 > I approved the exact preview. Export it once and summarize the validation and receipt.
 
+For the public video upload, use the exact-master sidecar captions at `demo/demo-captions.srt`. They are generated against the finished video timing and should not be manually retimed or burned into the product screenshots.
+
 ## Safety and scope
 
 - All data is deterministic and synthetic; there are no patient identifiers.
@@ -64,8 +66,16 @@ After pressing **Approve exact layout**:
 
 Architecture, implementation details, evaluation prompts, limitations, and the complete submission materials are in [`docs/`](./docs/), [`evals/`](./evals/), [`demo/`](./demo/), [`devpost-submission.md`](./devpost-submission.md), and [`RULES-VALIDATION.md`](./RULES-VALIDATION.md).
 
+Four tracked 16:9 gallery frames, suggested alt text, intended placement, and an accessible social card are in [`submission-assets/`](./submission-assets/README.md).
+
 ## Status
 
-The implementation, automated domain/registration tests, public repository, [live GitHub Pages deployment](https://webmaxru.github.io/webmcp-plate-studio/), and representative native Codex WebMCP validation are complete. A public narrated YouTube video and entrant-specific fields remain required before submission.
+The implementation, automated domain/registration tests, [public source repository](https://github.com/webmaxru/webmcp-plate-studio), [live GitHub Pages deployment](https://webmaxru.github.io/webmcp-plate-studio/), and representative native Codex WebMCP validation are complete. A validated 2:22 narrated final master exists only in ignored `submission-video/`; its public YouTube URL and entrant-specific fields remain required before submission.
+
+The live app must remain free, publicly accessible, and unrestricted through September 21, 2026 at 5:00 pm PT.
+
+## Challenge provenance
+
+Repository history starts with the initial app build on September 2, 2026. This is a new challenge project, not a WebMCP layer added to a pre-existing application. It remains substantially distinct from Islanding: this repository focuses on laboratory spatial allocation, human well locks, layout metrics, and CSV export rather than infrastructure switching and restoration safety.
 
 MIT licensed. See [`LICENSE`](./LICENSE).

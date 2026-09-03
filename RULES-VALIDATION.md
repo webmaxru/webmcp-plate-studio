@@ -8,10 +8,10 @@ Checked against the live Devpost MCP data on 2026-09-02. The official site and r
 |---|---|---|
 | WebMCP-powered web app | PASS in source and deterministic tests | Nine top-level imperative tools in `src/webmcp.js`; registration test passes |
 | Runnable and consistent | PASS locally | `npm run check` passes; no install or external service required |
-| Working live URL accessible to judges | PASS | `https://webmaxru.github.io/webmcp-plate-studio/` returned HTTP 200 with the expected title in an anonymous HTTPS request on 2026-09-02 |
+| Working live URL free and unrestricted through judging | PASS; ongoing availability required | `https://webmaxru.github.io/webmcp-plate-studio/` returned HTTP 200 with the expected title in an anonymous HTTPS request on 2026-09-02. Keep it free, public, and unrestricted through September 21, 2026 at 5:00 pm PT. |
 | WebMCP tested in ChatGPT/Codex in-app browser or enabled Chrome | PASS | OpenAI Codex desktop in-app Browser discovered all nine public-deployment tools and successfully called `get_experiment_brief` plus two `generate_candidate_layout` variants on 2026-09-02 |
 | Text description covers fit, UX, joint capability, implementation | PASS draft | `devpost-submission.md` |
-| Public YouTube demo, under 3 minutes, with audio | BLOCKED | Script and transcript exist; record, add voiceover, upload publicly |
+| Public YouTube demo, under 3 minutes, with audio and captions | BLOCKED | A validated 2:22 narrated final master exists only in ignored `submission-video/`; upload it publicly and attach exact-master `demo/demo-captions.srt` without manual retiming |
 | Public code repository | PASS | `https://github.com/webmaxru/webmcp-plate-studio`; GitHub API confirmed `isPrivate: false` on 2026-09-02 |
 | Complete source, assets, run instructions | PASS locally | README, app, server, tests, docs, and demo package are present |
 | Detectable open-source license | PASS in repository contents | MIT `LICENSE`; detection can be verified once repository is public |
@@ -27,7 +27,7 @@ Checked against the live Devpost MCP data on 2026-09-02. The official site and r
 - Required custom fields include submitter type, country, app status, live URL, public repository URL, tested agents/clients, AI tools used, learning level, and career value.
 - Multiple submissions are allowed only when each is unique and substantially different.
 - Demo must be publicly visible on YouTube, shorter than three minutes, and include audio covering the app and WebMCP usage. Do not use unlicensed music or trademarks.
-- The working project must stay accessible through the judging period.
+- The working project must stay free, publicly accessible, and unrestricted through September 21, 2026 at 5:00 pm PT.
 
 ## Automated evidence
 
@@ -37,11 +37,11 @@ Run:
 npm run check
 ```
 
-Expected: syntax checks succeed and ten tests pass. Tests cover deterministic candidate generation, controls, real strategy trade-off, D6 preservation, stale state, atomic rejection, page approval, approval revocation, idempotency, nine registrations, schemas/annotations, UI-before-result, and cancellation.
+Expected: syntax checks succeed and eleven tests pass. Tests cover deterministic candidate generation, controls, real strategy trade-off, D6 preservation, stale state, atomic rejection, page approval, approval revocation, idempotency, nine registrations, schemas/annotations, runtime input rejection, UI-before-result, and cancellation.
 
 ## Native Codex acceptance run
 
-Use the four prompts in `demo/demo-script.md`. Save:
+Use the three prompts in `demo/demo-script.md`. Save:
 
 1. Site-tools inspector screenshot with nine tools.
 2. Recently used history for the golden trace.
@@ -57,5 +57,5 @@ Retry recorded on 2026-09-02 after public deployment: Codex discovered exactly n
 
 ## Required final actions
 
-1. Record the scripted demo, add voiceover, and publish it on YouTube.
+1. Publish the validated 2:22 narrated final master from ignored `submission-video/` on YouTube.
 2. Replace the remaining entrant/video/client TODO values in `devpost-submission.md` and submit before the deadline.

@@ -261,6 +261,7 @@ export class PlateDomain {
     this.preview = null;
     this.approval = null;
     this.receipts = new Map();
+    this.nextExportIntent = 1;
     this.history = [];
     this.activity = [{ id: 1, actor: "system", action: "reset", version: 1, summary: "Seeded deliberately poor edge-heavy layout." }];
     return this.snapshot();
@@ -409,13 +410,16 @@ export class PlateDomain {
     if (!validation.exportReady) throw new DomainError("validation_failed", "The layout has blocking validation errors.", validation);
     const hash = layoutHash(this.assignments);
     const csv = this.buildCsv();
-    this.preview = { format, layoutHash: hash, stateVersion: this.version, csv };
+    const exportIntentId = `intent-${String(this.nextExportIntent).padStart(4, "0")}`;
+    this.nextExportIntent += 1;
+    this.preview = { format, layoutHash: hash, stateVersion: this.version, csv, exportIntentId };
     this.approval = null;
     this.log(actor, "export_prepared", `Prepared CSV preview for ${hash}; human approval required.`);
     return {
       ok: true,
       stateVersion: this.version,
       layoutHash: hash,
+      exportIntentId,
       approvalRequired: true,
       previewRows: csv.trim().split("\n").length - 1,
       metrics: validation.metrics,
@@ -430,6 +434,7 @@ export class PlateDomain {
     this.approval = {
       layoutHash: this.preview.layoutHash,
       stateVersion: this.version,
+      exportIntentId: this.preview.exportIntentId,
       approvedAt: new Date().toISOString(),
       usedAt: null,
     };

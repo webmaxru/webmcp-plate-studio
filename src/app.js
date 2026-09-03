@@ -131,25 +131,30 @@ function renderCandidates() {
 function renderExport() {
   const approvalState = $("#approval-state");
   const approve = $("#approve-export");
+  const exportApproved = $("#export-approved");
   if (!domain.preview) {
     approvalState.textContent = "Not prepared";
     approvalState.className = "mini-state";
     approve.disabled = true;
+    exportApproved.disabled = true;
     $("#csv-preview").textContent = "No preview yet.";
   } else if (domain.approval?.usedAt) {
     approvalState.textContent = "Exported";
     approvalState.className = "mini-state approved";
     approve.disabled = true;
+    exportApproved.disabled = true;
     $("#csv-preview").textContent = domain.preview.csv;
   } else if (domain.approval) {
     approvalState.textContent = "Human approved";
     approvalState.className = "mini-state approved";
     approve.disabled = true;
+    exportApproved.disabled = false;
     $("#csv-preview").textContent = domain.preview.csv;
   } else {
     approvalState.textContent = `Approval required · ${domain.preview.layoutHash}`;
     approvalState.className = "mini-state";
     approve.disabled = false;
+    exportApproved.disabled = true;
     $("#csv-preview").textContent = domain.preview.csv;
   }
   const receipt = [...domain.receipts.values()].at(-1);
@@ -216,6 +221,10 @@ $("#move-form").addEventListener("submit", (event) => {
 });
 $("#prepare-export").addEventListener("click", () => run(() => domain.prepareExport({ format: "csv", expectedStateVersion: domain.version }, "human"), "CSV preview prepared; visible approval is still required."));
 $("#approve-export").addEventListener("click", () => run(() => domain.approveExport(), "Exact visible layout approved by human."));
+$("#export-approved").addEventListener("click", () => run(() => domain.exportApproved({
+  layoutHash: domain.preview?.layoutHash,
+  idempotencyKey: `human-${domain.preview?.exportIntentId || "missing"}`,
+}, "human"), "Approved CSV exported once; receipt and download are ready."));
 
 populateSelects();
 render();

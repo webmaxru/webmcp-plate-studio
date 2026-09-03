@@ -21,7 +21,7 @@ test("all nine imperative tools register asynchronously with one lifecycle signa
   assert.equal(new Set(registered.map(({ tool }) => tool.name)).size, 9);
   assert.ok(registered.every(({ tool }) => tool.inputSchema.type === "object"));
   assert.ok(registered.every(({ options }) => options.signal instanceof AbortSignal));
-  assert.equal(tools.filter((tool) => tool.annotations?.readOnlyHint).length, 5);
+  assert.equal(tools.filter((tool) => tool.annotations?.readOnlyHint).length, 3);
   assert.deepEqual(statuses.at(-1), { state: "ready", registered: 9, errors: [] });
   const signal = registered[0].options.signal;
   registration.dispose();
@@ -59,4 +59,24 @@ test("an aborted execution does not mutate plate state", async () => {
   controller.abort(new Error("cancelled"));
   await assert.rejects(() => move.execute({ sampleId: "S12", targetWellId: "D6", expectedStateVersion: 1, lockWell: true }, { signal: controller.signal }), /cancelled/);
   assert.equal(domain.version, 1);
+});
+
+test("runtime validation rejects malformed and additional properties without mutation", async () => {
+  const domain = new PlateDomain();
+  const tools = createToolDefinitions(domain, () => {});
+  const move = tools.find((tool) => tool.name === "move_sample");
+
+  const wrongVersionType = await move.execute({
+    sampleId: "S12",
+    targetWellId: "D6",
+    expectedStateVersion: "1",
+  });
+  assert.equal(wrongVersionType.error.code, "invalid_input");
+  assert.match(wrongVersionType.error.message, /expectedStateVersion must be an integer/);
+
+  const unexpected = await tools.find((tool) => tool.name === "get_experiment_brief").execute({ includeSecrets: true });
+  assert.equal(unexpected.error.code, "invalid_input");
+  assert.match(unexpected.error.message, /includeSecrets is not an accepted property/);
+  assert.equal(domain.version, 1);
+  assert.equal(domain.assignments.D6, undefined);
 });

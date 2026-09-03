@@ -15,6 +15,54 @@ function checkCancelled(signal) {
   if (signal?.aborted) throw signal.reason || new DOMException("Tool execution was cancelled.", "AbortError");
 }
 
+function validateValue(value, schema, path) {
+  if (schema.type === "string" && typeof value !== "string") return `${path} must be a string.`;
+  if (schema.type === "integer" && !Number.isInteger(value)) return `${path} must be an integer.`;
+  if (schema.type === "boolean" && typeof value !== "boolean") return `${path} must be a boolean.`;
+  if (schema.type === "array" && !Array.isArray(value)) return `${path} must be an array.`;
+  if (schema.enum && !schema.enum.includes(value)) return `${path} must be one of: ${schema.enum.join(", ")}.`;
+  if (typeof value === "string") {
+    if (schema.minLength !== undefined && value.length < schema.minLength) return `${path} must contain at least ${schema.minLength} characters.`;
+    if (schema.maxLength !== undefined && value.length > schema.maxLength) return `${path} must contain at most ${schema.maxLength} characters.`;
+    if (schema.pattern && !new RegExp(schema.pattern).test(value)) return `${path} has an invalid format.`;
+  }
+  if (typeof value === "number" && schema.minimum !== undefined && value < schema.minimum) {
+    return `${path} must be at least ${schema.minimum}.`;
+  }
+  if (Array.isArray(value)) {
+    if (schema.minItems !== undefined && value.length < schema.minItems) return `${path} must contain at least ${schema.minItems} items.`;
+    if (schema.maxItems !== undefined && value.length > schema.maxItems) return `${path} must contain at most ${schema.maxItems} items.`;
+    if (schema.uniqueItems && new Set(value.map((item) => JSON.stringify(item))).size !== value.length) {
+      return `${path} must not contain duplicate items.`;
+    }
+    if (schema.items) {
+      for (let index = 0; index < value.length; index += 1) {
+        const error = validateValue(value[index], schema.items, `${path}[${index}]`);
+        if (error) return error;
+      }
+    }
+  }
+  return null;
+}
+
+function validateInput(input, schema) {
+  if (!input || typeof input !== "object" || Array.isArray(input)) return "Input must be an object.";
+  const properties = schema.properties || {};
+  for (const required of schema.required || []) {
+    if (!Object.hasOwn(input, required)) return `${required} is required.`;
+  }
+  if (schema.additionalProperties === false) {
+    const unexpected = Object.keys(input).find((key) => !Object.hasOwn(properties, key));
+    if (unexpected) return `${unexpected} is not an accepted property.`;
+  }
+  for (const [key, value] of Object.entries(input)) {
+    if (!Object.hasOwn(properties, key)) continue;
+    const error = validateValue(value, properties[key], key);
+    if (error) return error;
+  }
+  return null;
+}
+
 export function createToolDefinitions(domain, updateUi) {
   const execute = (operation) => async (input = {}, options = {}) => {
     checkCancelled(options.signal);
@@ -23,7 +71,7 @@ export function createToolDefinitions(domain, updateUi) {
     checkCancelled(options.signal);
     return output;
   };
-  return [
+  const tools = [
     {
       name: "get_experiment_brief",
       title: "Get experiment brief",
@@ -49,7 +97,6 @@ export function createToolDefinitions(domain, updateUi) {
         seed: { type: "string", minLength: 1, maxLength: 64, description: "Reproducible seed, for example judge-balance-v1." },
         expectedStateVersion: version,
       }, ["strategy", "seed", "expectedStateVersion"]),
-      annotations: { readOnlyHint: true },
       execute: execute((input) => domain.generateCandidate(input)),
     },
     {
@@ -57,7 +104,6 @@ export function createToolDefinitions(domain, updateUi) {
       title: "Compare two layouts",
       description: "Compare exactly two page-generated candidates using page-computed balance, separation, edge, and pipetting metrics without changing the active plate.",
       inputSchema: objectSchema({ candidateIds: { type: "array", minItems: 2, maxItems: 2, uniqueItems: true, items: { type: "string" }, description: "Two candidate IDs returned by generate_candidate_layout." } }, ["candidateIds"]),
-      annotations: { readOnlyHint: true },
       execute: execute(({ candidateIds }) => domain.compare(candidateIds)),
     },
     {
@@ -100,6 +146,21 @@ export function createToolDefinitions(domain, updateUi) {
       execute: execute((input) => domain.exportApproved(input, "agent")),
     },
   ];
+
+  return tools.map((tool) => {
+    const executeTool = tool.execute;
+    return {
+      ...tool,
+      async execute(input = {}, options = {}) {
+        checkCancelled(options.signal);
+        const validationError = validateInput(input, tool.inputSchema);
+        if (validationError) {
+          return { ok: false, error: { code: "invalid_input", message: `Invalid tool input: ${validationError}` } };
+        }
+        return executeTool(input, options);
+      },
+    };
+  });
 }
 
 export function registerWebMcpTools(modelContext, tools, onStatus = () => {}) {

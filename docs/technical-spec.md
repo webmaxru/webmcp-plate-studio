@@ -8,7 +8,7 @@ PlateWeave is a static, synthetic 96-well design demonstrator. It has no backend
 
 ```text
 seeded poor plate (v1)
-  -> generate two read-only candidates
+  -> generate two non-destructive candidates
   -> compare page-computed metrics
   -> apply one reversible candidate (v2)
   -> human moves S12 to D6 and locks it (v3)
@@ -37,7 +37,7 @@ Every mutation carrying `expectedStateVersion` fails closed on a mismatch. A lay
 | `prepare_export` | Reversible write | CSV preview and exact hash; approval still required |
 | `export_approved_layout` | Consequential write | Consumes page approval once; supports idempotent replay |
 
-`src/webmcp.js` uses `document.modelContext || navigator.modelContext`, awaits asynchronous registration, keeps one `AbortController` for registration lifetime, and honors the independent per-call execution signal. Read-only tools declare `readOnlyHint`. All schemas reject additional properties.
+`src/webmcp.js` uses `document.modelContext || navigator.modelContext`, awaits asynchronous registration inside `try`/`catch`, keeps one `AbortController` for registration lifetime, and honors the independent per-call execution signal. Only `get_experiment_brief`, `inspect_plate`, and `validate_active_layout` declare `readOnlyHint`; proposal generation and comparison have visible side effects. Schema constraints are also enforced at runtime, including required fields, types, enums, patterns, uniqueness, and rejection of additional properties.
 
 ## Deterministic layout model
 
@@ -53,9 +53,10 @@ Every mutation carrying `expectedStateVersion` fails closed on a mismatch. A lay
 - Unknown samples/wells, fixed-control moves, duplicate placement, malformed hashes, stale versions, unprepared exports, and unapproved exports return structured corrective errors.
 - UI rendering completes before a tool result resolves.
 - Human and agent paths invoke the same `PlateDomain` methods.
+- The no-WebMCP UI can prepare, visibly approve, and perform the same one-time approved export.
 - CSV export is local and synthetic; it never sends data to a server.
 - WebMCP absence leaves the full human interface operational.
 
 ## Verification
 
-`npm run check` runs syntax checks plus ten deterministic Node tests. The fake `modelContext` verifies tool names, schemas, annotations, registration signals, cleanup, cancellation, stale errors, and UI-before-result ordering. Native discovery and natural-language routing still require a supported visible WebMCP client.
+`npm run check` runs syntax checks plus eleven deterministic Node tests. The fake `modelContext` verifies tool names, schemas, annotations, runtime input rejection, registration signals, cleanup, cancellation, stale errors, and UI-before-result ordering. Native discovery and natural-language routing still require a supported visible WebMCP client.

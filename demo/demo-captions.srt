@@ -1,0 +1,200 @@
+1
+00:00:00,050 --> 00:00:04,456
+Here's the whole plate, top to bottom —
+nothing hidden, nothing cut away.
+
+2
+00:00:04,456 --> 00:00:07,639
+A plate layout mistake never announces
+itself.
+
+3
+00:00:07,639 --> 00:00:11,859
+You find it a week later, in the data —
+after the reagent is gone, and the last
+
+4
+00:00:11,859 --> 00:00:15,544
+aliquot of an irreplaceable sample is
+sitting in the wrong well.
+
+5
+00:00:15,544 --> 00:00:16,586
+This is the job.
+
+6
+00:00:16,586 --> 00:00:19,201
+Ninety-six near-identical wells.
+
+7
+00:00:19,201 --> 00:00:21,273
+Controls locked in the corners.
+
+8
+00:00:21,273 --> 00:00:23,461
+Replicates that have to stay apart.
+
+9
+00:00:23,461 --> 00:00:25,185
+Edge wells that evaporate.
+
+10
+00:00:25,185 --> 00:00:29,236
+Tedious, spatial work that people are bad
+at and agents should be good at.
+
+11
+00:00:29,236 --> 00:00:31,354
+But not the way agents usually work.
+
+12
+00:00:31,354 --> 00:00:36,088
+A chat assistant can describe a beautiful
+layout; it can't put one on your plate.
+
+13
+00:00:36,088 --> 00:00:38,187
+An agent driving your screen sees
+
+14
+00:00:38,187 --> 00:00:43,359
+ninety-six identical boxes — coordinates
+never say which well holds your scarce
+
+15
+00:00:43,359 --> 00:00:47,106
+sample, or whether its plan went stale
+thirty seconds ago.
+
+16
+00:00:47,106 --> 00:00:49,722
+So PlateWeave gives the page its own
+voice.
+
+17
+00:00:49,722 --> 00:00:51,804
+Nine WebMCP tools expose the same
+
+18
+00:00:51,804 --> 00:00:56,785
+versioned state the scientist sees —
+sample identities, locks, constraints,
+
+19
+00:00:56,785 --> 00:01:01,840
+computed metrics — so the agent reasons
+about the experiment instead of pixels.
+
+20
+00:01:01,840 --> 00:01:05,428
+Then I ask for what a scientist actually
+wants, in one sentence.
+
+21
+00:01:05,428 --> 00:01:07,961
+Keep the controls fixed, samples off the
+
+22
+00:01:07,961 --> 00:01:11,238
+edge, replicates apart, and show me the
+trade-off.
+
+23
+00:01:11,238 --> 00:01:15,971
+Codex generates two deterministic
+candidates — one tuned for statistical
+
+24
+00:01:15,971 --> 00:01:20,556
+balance, one for pipetting speed — and
+asks the page to score its own work.
+
+25
+00:01:20,556 --> 00:01:22,981
+The recommendation lands as a reversible
+
+26
+00:01:22,981 --> 00:01:25,752
+preview, and the whole layout changes at
+once.
+
+27
+00:01:25,752 --> 00:01:27,292
+Now the part that matters.
+
+28
+00:01:27,292 --> 00:01:31,400
+This sample is scarce, so I place it at D6
+and lock it myself.
+
+29
+00:01:31,400 --> 00:01:33,958
+That edit bumps the state version, making
+
+30
+00:01:33,958 --> 00:01:37,465
+the agent's earlier plan stale — and the
+page refuses it.
+
+31
+00:01:37,465 --> 00:01:40,405
+Codex rebuilds around my lock and
+validates.
+
+32
+00:01:40,405 --> 00:01:41,875
+My well never moves.
+
+33
+00:01:41,875 --> 00:01:43,843
+Export is a harder boundary.
+
+34
+00:01:43,843 --> 00:01:46,351
+The agent can prepare the exact file and
+
+35
+00:01:46,351 --> 00:01:51,215
+its hash, but when it tries to export, the
+page answers: approval required.
+
+36
+00:01:51,215 --> 00:01:52,616
+That isn't the model's call.
+
+37
+00:01:52,616 --> 00:01:55,342
+I approve the hash myself, and one export
+
+38
+00:01:55,342 --> 00:01:59,271
+goes through — bound to that exact layout,
+with a receipt.
+
+39
+00:01:59,271 --> 00:02:02,546
+Ask again, and you get the same receipt,
+never a second file.
+
+40
+00:02:02,546 --> 00:02:05,486
+That's the shape of trustworthy agent work
+on the web.
+
+41
+00:02:05,486 --> 00:02:07,770
+The page keeps the rules, the agent does
+
+42
+00:02:07,770 --> 00:02:11,991
+the precision, and the scientist keeps the
+judgment and the last click.
+
+43
+00:02:11,991 --> 00:02:14,076
+Nobody clicked ninety-six times, and
+
+44
+00:02:14,076 --> 00:02:17,465
+nothing that mattered happened without a
+person saying yes.

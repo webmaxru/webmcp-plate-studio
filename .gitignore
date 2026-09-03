@@ -6,3 +6,6 @@ Thumbs.db
 coverage/
 artifacts/browser/
 demo/raw-recording.*
+
+# Local submission recordings
+/submission-video/

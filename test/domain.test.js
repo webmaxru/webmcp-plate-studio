@@ -90,3 +90,38 @@ test("any post-approval plate edit revokes the approval", () => {
     (error) => error instanceof DomainError && error.code === "layout_mismatch",
   );
 });
+
+test("a restored layout creates a new human export intention and consumes its approval", () => {
+  const domain = new PlateDomain();
+  const { balance } = candidates(domain);
+  domain.applyCandidate({ candidateId: balance.candidateId, expectedStateVersion: 1 });
+
+  const firstPreview = domain.prepareExport({ format: "csv", expectedStateVersion: 2 }, "human");
+  domain.approveExport();
+  const firstReceipt = domain.exportApproved({
+    layoutHash: firstPreview.layoutHash,
+    idempotencyKey: `human-${firstPreview.exportIntentId}`,
+  }, "human");
+
+  const sourceWell = Object.entries(domain.assignments).find(([, item]) => item.id === "S12")[0];
+  const targetWell = sourceWell === "D6" ? "E6" : "D6";
+  domain.moveSample({
+    sampleId: "S12",
+    targetWellId: targetWell,
+    expectedStateVersion: 2,
+  }, "human");
+  domain.undo();
+
+  const secondPreview = domain.prepareExport({ format: "csv", expectedStateVersion: 4 }, "human");
+  domain.approveExport();
+  const secondReceipt = domain.exportApproved({
+    layoutHash: secondPreview.layoutHash,
+    idempotencyKey: `human-${secondPreview.exportIntentId}`,
+  }, "human");
+
+  assert.equal(secondPreview.layoutHash, firstPreview.layoutHash);
+  assert.notEqual(secondPreview.exportIntentId, firstPreview.exportIntentId);
+  assert.notEqual(secondReceipt.receiptId, firstReceipt.receiptId);
+  assert.equal(secondReceipt.idempotentReplay, false);
+  assert.ok(domain.approval.usedAt);
+});

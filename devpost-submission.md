@@ -48,14 +48,14 @@ Codex converted the scenario into a narrow executable state machine, split the d
 
 ## Architecture
 
-The project is dependency-free HTML, CSS, and JavaScript served by a small Node static server. `src/domain.js` owns normalized state and all business rules. `src/app.js` renders the plate and sends human actions through that domain. `src/webmcp.js` wraps the same methods as top-level imperative tools using `document.modelContext || navigator.modelContext`, awaited registration, strict JSON schemas, `AbortController` cleanup, annotations, and per-call cancellation.
+The project is dependency-free HTML, CSS, and JavaScript served by a small Node static server. `src/domain.js` owns normalized state and all business rules. `src/app.js` renders the plate and sends human actions through that domain, including a complete prepare/approve/export path without an agent. `src/webmcp.js` wraps the same methods as top-level imperative tools using `document.modelContext || navigator.modelContext`, awaited registration in `try`/`catch`, strict JSON schemas backed by runtime validation, `AbortController` cleanup, conservative read-only annotations, and per-call cancellation.
 
 ## Testing Instructions
 
 1. Run `npm start` with Node 20+ and open `http://127.0.0.1:4173`.
-2. Run `npm run check`; all ten tests should pass.
-3. In a supported desktop in-app browser, confirm nine site tools are discoverable.
-4. Follow the four exact prompts in `demo/demo-script.md`.
+2. Run `npm run check`; all eleven tests should pass.
+3. In the ChatGPT desktop in-app browser, or Google Chrome 149+ with `chrome://flags/#enable-webmcp-testing`, confirm nine site tools are discoverable.
+4. Follow the three exact prompts in `demo/demo-script.md`.
 5. Verify S12 remains at D6 after stale recovery.
 6. Verify premature export returns `approval_required`, then approve in the page and export once.
 7. Retry with the same idempotency key and confirm no duplicate receipt.
@@ -64,13 +64,15 @@ The project is dependency-free HTML, CSS, and JavaScript served by a small Node 
 
 https://webmaxru.github.io/webmcp-plate-studio/
 
+Keep this live app free, publicly accessible, and unrestricted through September 21, 2026 at 5:00 pm PT.
+
 ## Public Repository Link
 
 https://github.com/webmaxru/webmcp-plate-studio
 
 ## Demo Video
 
-TODO — record `demo/demo-script.md`, add the supplied voiceover, keep the final cut under three minutes, and upload it publicly to YouTube.
+TODO — upload the validated 2:22 narrated final master from ignored `submission-video/` publicly to YouTube, then paste its URL here. Upload `demo/demo-captions.srt` as the exact-master caption sidecar without manually retiming it.
 
 ## Screenshot Shot List
 

@@ -1,6 +1,6 @@
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
-import { extname, join, normalize } from "node:path";
+import { extname, isAbsolute, join, normalize, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = fileURLToPath(new URL(".", import.meta.url));
@@ -17,9 +17,10 @@ const mime = {
 createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, "http://localhost").pathname);
-    const relative = pathname === "/" ? "index.html" : pathname.replace(/^\/+/, "");
-    const candidate = normalize(join(root, relative));
-    if (!candidate.startsWith(normalize(root))) throw new Error("Invalid path");
+    const requestRelative = pathname === "/" ? "index.html" : pathname.replace(/^\/+/, "");
+    const candidate = normalize(join(root, requestRelative));
+    const rootRelative = relative(root, candidate);
+    if (rootRelative.startsWith("..") || isAbsolute(rootRelative)) throw new Error("Invalid path");
     const info = await stat(candidate);
     const path = info.isDirectory() ? join(candidate, "index.html") : candidate;
     const body = await readFile(path);

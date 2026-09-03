@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">PlateWeave WebMCP microplate design studio</title>
+  <desc id="description">A dark green social card for a scientist-agent 96-well design workflow with semantic tools and visible export approval.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#06130f"/>
+      <stop offset="1" stop-color="#0d3528"/>
+    </linearGradient>
+    <radialGradient id="accent">
+      <stop stop-color="#70e7b3" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#70e7b3" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" rx="32" fill="url(#background)"/>
+  <circle cx="1000" cy="160" r="260" fill="url(#accent)"/>
+
+  <g transform="translate(76 70)">
+    <rect width="72" height="72" rx="20" fill="#0e3a2c" stroke="#72e6b5" stroke-width="2"/>
+    <g fill="#72e6b5">
+      <circle cx="25" cy="25" r="8"/><circle cx="47" cy="25" r="8"/>
+      <circle cx="25" cy="47" r="8"/><circle cx="47" cy="47" r="8"/>
+    </g>
+    <text x="96" y="47" fill="#f2fff9" font-family="Segoe UI, Arial, sans-serif" font-size="42" font-weight="800">PlateWeave</text>
+  </g>
+
+  <text x="76" y="242" fill="#f3fff9" font-family="Segoe UI, Arial, sans-serif" font-size="59" font-weight="750">
+    Design the plate together.
+  </text>
+  <text x="78" y="302" fill="#b9d8ca" font-family="Segoe UI, Arial, sans-serif" font-size="27">
+    A scientist protects intent. An agent handles precise spatial work.
+  </text>
+  <text x="78" y="344" fill="#b9d8ca" font-family="Segoe UI, Arial, sans-serif" font-size="27">
+    The page validates both through nine semantic WebMCP tools.
+  </text>
+
+  <g transform="translate(78 408)">
+    <rect width="650" height="148" rx="24" fill="#092219" stroke="#285c47" stroke-width="2"/>
+    <g transform="translate(28 25)">
+      <g fill="#70d9ff">
+        <circle cx="18" cy="18" r="13"/><circle cx="58" cy="18" r="13"/><circle cx="98" cy="18" r="13"/><circle cx="138" cy="18" r="13"/>
+        <circle cx="178" cy="18" r="13"/><circle cx="218" cy="18" r="13"/><circle cx="258" cy="18" r="13"/><circle cx="298" cy="18" r="13"/>
+      </g>
+      <g fill="#b68bff">
+        <circle cx="18" cy="58" r="13"/><circle cx="58" cy="58" r="13"/><circle cx="98" cy="58" r="13"/><circle cx="138" cy="58" r="13"/>
+        <circle cx="178" cy="58" r="13"/><circle cx="218" cy="58" r="13"/><circle cx="258" cy="58" r="13"/><circle cx="298" cy="58" r="13"/>
+      </g>
+      <g fill="#ffca73">
+        <circle cx="338" cy="18" r="13"/><circle cx="378" cy="18" r="13"/><circle cx="338" cy="58" r="13"/><circle cx="378" cy="58" r="13"/>
+      </g>
+      <path d="M438 16l13 14 27-34" fill="none" stroke="#70e7b3" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="430" y="73" fill="#9ed8bd" font-family="Segoe UI, Arial, sans-serif" font-size="17">validated</text>
+    </g>
+  </g>
+
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="650">
+    <rect x="780" y="430" width="340" height="74" rx="20" fill="#103a2d" stroke="#3a785e"/>
+    <circle cx="820" cy="467" r="8" fill="#70e7b3"/>
+    <text x="842" y="475" fill="#effff7">Human-approved, one-time CSV export</text>
+  </g>
+</svg>
