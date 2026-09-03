@@ -22,7 +22,8 @@
     "start-hackathon",
     "review",
     "resources",
-    "prepare-submission"
+    "prepare-submission",
+    "submit-project"
   ],
   "rules_acknowledged": true,
   "learning": {
@@ -34,8 +35,12 @@
   },
   "submission": {
     "draft_file": "devpost-submission.md",
-    "status": "drafting"
+    "status": "submitted",
+    "project_id": 1415601,
+    "project_slug": "plateweave-reliable-96-well-designs-avoid-costly-mistakes",
+    "submission_id": 1169327,
+    "url": "https://devpost.com/software/plateweave-reliable-96-well-designs-avoid-costly-mistakes"
   },
-  "current_stage": "prepare-submission",
-  "next_command": "submit-project"
+  "current_stage": "submit-project",
+  "next_command": "hackathon-map"
 }
